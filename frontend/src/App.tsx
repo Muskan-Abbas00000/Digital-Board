@@ -9,7 +9,7 @@ type Scene = { title: string; narration: string; actions: Action[] }
 type Block = { id: string; type: Action['type']; content: string }
 type Message = { type: string; state?: string; scene?: Scene; index?: number; total?: number; aside?: boolean; message?: string }
 
-const API = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000').replace(/\/$/, '')
+const API = (import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? 'http://localhost:8000' : window.location.origin)).replace(/\/$/, '')
 const WS = API.replace(/^http/, 'ws') + '/ws'
 const examples = ['How does photosynthesis work?', 'Explain the TCP handshake', 'Teach me the Pythagorean theorem']
 const splitSentences = (value: string) => value.match(/[^.!?]+[.!?]*/g)?.map((part) => part.trim()).filter(Boolean) ?? [value]
