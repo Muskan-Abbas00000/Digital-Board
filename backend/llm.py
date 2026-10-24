@@ -9,10 +9,10 @@ import httpx
 # Keep credentials on the backend. A local backend/.env is ignored by Git;
 # process environment variables still take precedence over values in the file.
 load_dotenv(Path(__file__).with_name(".env"), override=False)
-_api_key = os.getenv("GEMINI_API_KEY")
+_api_key = os.getenv("GEMINI_API_KEY") or os.getenv("Gemini")
 if not _api_key:
     raise RuntimeError(
-        "GEMINI_API_KEY is not set. Add it to backend/.env or the backend process environment."
+        "GEMINI_API_KEY (or the legacy Gemini variable) is not set. Add it to backend/.env or the backend process environment."
     )
 _client = genai.Client(
     api_key=_api_key,

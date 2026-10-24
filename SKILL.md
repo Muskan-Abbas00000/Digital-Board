@@ -4,7 +4,7 @@ Use this guide when changing or operating this repository.
 
 ## Product context
 
-Digital Board is an online, browser based teaching board backed by the Gemini API. It is not an offline model runner. Keep `GEMINI_API_KEY` on the backend; never put it in a `VITE_*` variable, frontend source, logs, documentation, or committed files. The committed `.env.example` files must contain placeholders only.
+Digital Board is an online, browser based teaching board backed by the Gemini API. It is not an offline model runner. Keep the Gemini API key on the backend as `GEMINI_API_KEY` (or `Gemini` for an existing deployment); never put it in a `VITE_*` variable, frontend source, logs, documentation, or committed files. The committed `.env.example` files must contain placeholders only.
 
 ## Architecture
 

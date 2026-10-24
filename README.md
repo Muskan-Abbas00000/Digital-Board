@@ -86,7 +86,7 @@ python -m pip install -r backend\requirements.txt
 Copy-Item backend\.env.example backend\.env
 ```
 
-Open `backend/.env` and set `GEMINI_API_KEY` to your Gemini API key. `GEMINI_MODEL` is tried first; `GEMMA_MODEL` and a secondary Gemma model are fallbacks. Confirm that the chosen model names are enabled for your API project. Never commit `backend/.env`.
+Open `backend/.env` and set `GEMINI_API_KEY` to your Gemini API key. For deployments that already use an environment variable named `Gemini`, the backend accepts that name as a fallback; `GEMINI_API_KEY` takes precedence if both are set. `GEMINI_MODEL` is tried first; `GEMMA_MODEL` and a secondary Gemma model are fallbacks. Confirm that the chosen model names are enabled for your API project. Never commit `backend/.env`.
 
 ### 2. Set up the frontend
 
@@ -122,7 +122,7 @@ Open the URL printed by Vite (typically `http://localhost:5173`). Check backend 
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `GEMINI_API_KEY` | Yes | Secret API key used by the backend to call Gemini |
+| `GEMINI_API_KEY` or `Gemini` | Yes | Secret API key used by the backend to call Gemini. The standard `GEMINI_API_KEY` name takes precedence if both are set. |
 | `GEMINI_MODEL` | No | Primary model name; defaults to `gemini-3.5-flash-lite` in the current code |
 | `GEMMA_MODEL` | No | First fallback model name; defaults to `gemma-4-26b-a4b-it` in the current code |
 
